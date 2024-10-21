@@ -12,13 +12,23 @@ background_color = (5, 31, 57)
 
 running = True
 
-while running:
+
+def event_handler() -> bool:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            return False
+    return True
 
+
+def display():
     display_surface.fill(background_color)
 
     pygame.display.update()
+
+
+while running:
+    running = event_handler()
+
+    display()
 
 pygame.quit()
