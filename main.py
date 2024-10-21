@@ -16,9 +16,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:
-            if pygame.key.key_code("escape"):
-                running = False
 
     display_surface.fill(background_color)
 
