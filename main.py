@@ -1,5 +1,6 @@
 import pygame
 
+import mainmenu
 from settings import *
 
 pygame.init()
@@ -20,6 +21,8 @@ def event_handler() -> bool:
 
 def render():
     display_surface.fill(BACKGROUND_COLOR)
+
+    mainmenu.render()
 
     pygame.display.update()
 
