@@ -5,7 +5,7 @@ from settings import *
 
 pygame.init()
 
-display_surface = pygame.display.set_mode(WINDOW_SIZE)
+display_surface = pygame.display.set_mode(WINDOW_SIZE, pygame.FULLSCREEN)
 
 pygame.display.set_caption("Habit pet")
 
