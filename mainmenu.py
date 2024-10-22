@@ -5,5 +5,5 @@ def update():
     pass
 
 
-def render():
+def render(window: pygame.Surface):
     pass

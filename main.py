@@ -22,7 +22,7 @@ def event_handler() -> bool:
 def render():
     display_surface.fill(BACKGROUND_COLOR)
 
-    mainmenu.render()
+    mainmenu.render(display_surface)
 
     pygame.display.update()
 
