@@ -18,7 +18,7 @@ def event_handler() -> bool:
     return True
 
 
-def display():
+def render():
     display_surface.fill(BACKGROUND_COLOR)
 
     pygame.display.update()
@@ -27,6 +27,6 @@ def display():
 while running:
     running = event_handler()
 
-    display()
+    render()
 
 pygame.quit()
