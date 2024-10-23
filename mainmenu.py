@@ -9,9 +9,6 @@ def update():
 
 
 def render(window: pygame.Surface):
-    global title_surface
-    global title_rect
-
     title_surface = pygame.image.load("./Assets/MainMenu/Habit pet.png").convert_alpha()
     title_rect = title_surface.get_rect(center=(640, 80))
 
