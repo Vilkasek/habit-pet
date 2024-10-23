@@ -6,5 +6,5 @@ def update():
 
 
 def render(window: pygame.Surface):
-    title_surface = pygame.image.load("./Assets/MainMenu/Habit pet.png").convert_alpha()
+    title_surface = pygame.image.load("./Assets/MainMenu/").convert_alpha()
     title_rect = title_surface.get_rect()
