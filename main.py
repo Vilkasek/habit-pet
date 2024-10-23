@@ -5,7 +5,7 @@ from settings import *
 
 pygame.init()
 
-display_surface = pygame.display.set_mode(WINDOW_SIZE, pygame.FULLSCREEN)
+display_surface = pygame.display.set_mode(WINDOW_SIZE)
 
 pygame.display.set_caption("Habit pet")
 
@@ -19,6 +19,10 @@ def event_handler() -> bool:
     return True
 
 
+def update():
+    mainmenu.update()
+
+
 def render():
     display_surface.fill(BACKGROUND_COLOR)
 
@@ -29,7 +33,7 @@ def render():
 
 while running:
     running = event_handler()
-
+    update()
     render()
 
 pygame.quit()
