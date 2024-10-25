@@ -13,14 +13,14 @@ running = True
 
 
 def event_handler() -> bool:
+    mouse_position = pygame.mouse.get_pos()
+
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or mainmenu.exit_button.is_clicked(
+            mouse_position, event
+        ):
             return False
     return True
-
-
-def update():
-    mainmenu.update()
 
 
 def render():
@@ -33,7 +33,6 @@ def render():
 
 while running:
     running = event_handler()
-    update()
     render()
 
 pygame.quit()
