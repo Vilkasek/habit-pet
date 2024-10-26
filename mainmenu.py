@@ -15,4 +15,4 @@ def render(window: pygame.Surface):
     options_button.draw(window)
     exit_button.draw(window)
 
-    window.blit(title_surf, title_rect)
+    window.blit(title_surf.convert_alpha(), title_rect)
