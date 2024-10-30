@@ -14,10 +14,10 @@ class Backlight:
     def update(self, button_hovered: bool):
         if button_hovered:
             if self.alpha < 255:
-                self.alpha += 5
+                self.alpha += 30
         else:
             if self.alpha > 0:
-                self.alpha -= 5
+                self.alpha -= 30
 
         self.image.set_alpha(self.alpha)
 

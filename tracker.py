@@ -17,6 +17,8 @@ back_backlight = Backlight(backlight_path, (82, 642))
 def update():
     mouse_position = pygame.mouse.get_pos()
 
+    pygame.time.Clock().tick(60)
+
     back_hint.update(back_button.is_hovered(mouse_position))
     back_backlight.update(back_button.is_hovered(mouse_position))
 
