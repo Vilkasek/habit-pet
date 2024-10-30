@@ -1,5 +1,6 @@
 import pygame
 
+from Utils.backlight import Backlight
 from Utils.button import Button
 from Utils.hint import Hint
 
@@ -10,15 +11,18 @@ backlight_path = "./Assets/TaskMenu/Controls/Backlight.png"
 
 back_button = Button("./Assets/TaskMenu/Controls/Back.png", (80, 640))
 back_hint = Hint("./Assets/TaskMenu/Tooltips/BackTooltip.png", (80, 580))
+back_backlight = Backlight(backlight_path, (82, 642))
 
 
 def update():
     mouse_position = pygame.mouse.get_pos()
 
     back_hint.update(back_button.is_hovered(mouse_position))
+    back_backlight.update(back_button.is_hovered(mouse_position))
 
 
 def render(window: pygame.Surface):
+    back_backlight.draw(window)
     back_button.draw(window)
     back_hint.draw(window)
 

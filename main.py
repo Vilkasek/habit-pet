@@ -35,7 +35,13 @@ def event_handler() -> bool:
 
 
 def update():
-    tracker.update()
+    match state:
+        case "MainMenu":
+            mainmenu.update()
+        case "Tracker":
+            tracker.update()
+        case "Options":
+            pass
 
 
 def render():
