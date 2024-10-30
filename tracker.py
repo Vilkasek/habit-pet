@@ -6,6 +6,8 @@ from Utils.hint import Hint
 title_surf: pygame.Surface = pygame.image.load("./Assets/TaskMenu/Your tasks.png")
 title_rect: pygame.Rect = title_surf.get_rect(center=(640, 100))
 
+backlight_path = "./Assets/TaskMenu/Controls/Backlight.png"
+
 back_button = Button("./Assets/TaskMenu/Controls/Back.png", (80, 640))
 back_hint = Hint("./Assets/TaskMenu/Tooltips/BackTooltip.png", (80, 580))
 
