@@ -18,7 +18,6 @@ options_button = Button("./Assets/MainMenu/Buttons/Options.png", (640, 400))
 exit_button = Button("./Assets/MainMenu/Buttons/Exit.png", (640, 500))
 
 paws_left = [
-    Paw("./Assets/MainMenu/Paw.png", (500, 600), False, 20),
     Paw("./Assets/MainMenu/Paw.png", (300, 560), False, 20),
     Paw("./Assets/MainMenu/Paw.png", (280, 380), False, 20),
     Paw("./Assets/MainMenu/Paw.png", (100, 360), False, 20),
@@ -26,7 +25,6 @@ paws_left = [
 ]
 
 paws_right = [
-    Paw("./Assets/MainMenu/Paw.png", (780, 600), True, 20),
     Paw("./Assets/MainMenu/Paw.png", (980, 560), True, 20),
     Paw("./Assets/MainMenu/Paw.png", (1000, 380), True, 20),
     Paw("./Assets/MainMenu/Paw.png", (1180, 360), True, 20),

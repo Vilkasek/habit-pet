@@ -13,6 +13,8 @@ back_button = Button("./Assets/TaskMenu/Controls/Back.png", (80, 640))
 back_hint = Hint("./Assets/TaskMenu/Tooltips/BackTooltip.png", (80, 580))
 back_backlight = Backlight(backlight_path, (82, 642))
 
+add_button = Button
+
 
 def update():
     mouse_position = pygame.mouse.get_pos()
