@@ -26,9 +26,16 @@ def event_handler() -> bool:
             mouse_position, event
         ):
             return False
+
         if mainmenu.start_button.is_clicked(mouse_position, event):
             state = states[2]
+        if tracker.back_button.is_clicked(mouse_position, event):
+            state = states[0]
     return True
+
+
+def update():
+    tracker.update()
 
 
 def render():
@@ -47,6 +54,8 @@ def render():
 
 while running:
     running = event_handler()
+
+    update()
     render()
 
 pygame.quit()

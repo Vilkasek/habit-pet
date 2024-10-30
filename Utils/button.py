@@ -17,3 +17,9 @@ class Button:
             return True
 
         return False
+
+    def is_hovered(self, mouse_pos: tuple[int, int]) -> bool:
+        if self.rect.collidepoint(mouse_pos):
+            return True
+
+        return False
