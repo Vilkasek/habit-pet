@@ -13,7 +13,9 @@ back_button = Button("./Assets/TaskMenu/Controls/Back.png", (80, 640))
 back_hint = Hint("./Assets/TaskMenu/Tooltips/BackTooltip.png", (80, 580))
 back_backlight = Backlight(backlight_path, (82, 642))
 
-add_button = Button
+add_button = Button("./Assets/TaskMenu/Controls/AddTaskButton.png", (640, 640))
+add_hint = Hint("./Assets/TaskMenu/Tooltips/AddTaskTooltip.png", (640, 580))
+add_backlight = Backlight(backlight_path, (642, 642))
 
 
 def update():
@@ -24,10 +26,17 @@ def update():
     back_hint.update(back_button.is_hovered(mouse_position))
     back_backlight.update(back_button.is_hovered(mouse_position))
 
+    add_hint.update(add_button.is_hovered(mouse_position))
+    add_backlight.update(add_button.is_hovered(mouse_position))
+
 
 def render(window: pygame.Surface):
     back_backlight.draw(window)
     back_button.draw(window)
     back_hint.draw(window)
+
+    add_backlight.draw(window)
+    add_button.draw(window)
+    add_hint.draw(window)
 
     window.blit(title_surf.convert_alpha(), title_rect)
