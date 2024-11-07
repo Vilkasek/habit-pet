@@ -12,7 +12,7 @@ pygame.display.set_caption("Habit pet")
 
 running = True
 
-states = ["MainMenu", "Options", "Tracker"]
+states = ["MainMenu", "Options", "Tracker", "Pet"]
 state = states[0]
 
 
