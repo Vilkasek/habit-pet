@@ -4,7 +4,9 @@ import pygame
 
 
 class Paw:
-    def __init__(self, folder_path: str, pos: tuple[int, int], framerate: int) -> None:
+    def __init__(
+        self, folder_path: str, pos: tuple[int, int], framerate: int, flipped: bool
+    ) -> None:
         self.position = pos
 
         self.folder_path = folder_path
@@ -20,6 +22,8 @@ class Paw:
                 frame = pygame.image.load(os.path.join(folder_path, filename))
                 self.frames.append(frame)
 
+        self.flipped = flipped
+
     def update(self):
         now = pygame.time.get_ticks()
 
@@ -30,6 +34,10 @@ class Paw:
     def draw(self, window: pygame.Surface):
         current_frame = self.frames[self.frame_index]
         current_frame = pygame.transform.scale(current_frame, (400, 400))
+
+        if self.flipped:
+            current_frame = pygame.transform.flip(current_frame, self.flipped, False)
+
         current_frame = current_frame.convert_alpha()
 
         frame_rect = current_frame.get_rect(center=self.position)

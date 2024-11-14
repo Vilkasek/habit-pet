@@ -18,7 +18,7 @@ options_button = Button("./Assets/MainMenu/Buttons/Options.png", (640, 400))
 exit_button = Button("./Assets/MainMenu/Buttons/Exit.png", (640, 500))
 
 paws_path = "./Assets/MainMenu/Paw_Animation/"
-paws = [Paw(paws_path, (200, 500), 1), Paw(paws_path, (1000, 300), 1)]
+paws = [Paw(paws_path, (300, 500), 1, False), Paw(paws_path, (1000, 300), 1, True)]
 
 
 def update():
