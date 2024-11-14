@@ -17,6 +17,13 @@ add_button = Button("./Assets/TaskMenu/Controls/AddTaskButton.png", (640, 640))
 add_hint = Hint("./Assets/TaskMenu/Tooltips/AddTaskTooltip.png", (640, 580))
 add_backlight = Backlight(backlight_path, (642, 642))
 
+tasks = []
+checkbox_paths = [
+    "./Assets/TaskMenu/Circles/CircleOff.png",
+    "./Assets/TaskMenu/Circles/CircleOn.png",
+]
+checkboxes = []
+
 
 def update():
     mouse_position = pygame.mouse.get_pos()
