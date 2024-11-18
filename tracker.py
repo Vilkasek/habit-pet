@@ -3,6 +3,7 @@ import pygame
 from Utils.backlight import Backlight
 from Utils.button import Button
 from Utils.hint import Hint
+from Utils.task import Task
 
 title_surf: pygame.Surface = pygame.image.load("./Assets/TaskMenu/Your tasks.png")
 title_rect: pygame.Rect = title_surf.get_rect(center=(640, 100))
@@ -22,7 +23,12 @@ checkbox_paths = [
     "./Assets/TaskMenu/Circles/CircleOff.png",
     "./Assets/TaskMenu/Circles/CircleOn.png",
 ]
-checkboxes = []
+
+
+def add_task():
+    task_name = "Task " + str(len(tasks) + 1)
+    task_position = (100, 150 + len(tasks) * 50)
+    tasks.append(Task(task_name, task_position, checkbox_paths))
 
 
 def update():
@@ -37,7 +43,7 @@ def update():
     add_backlight.update(add_button.is_hovered(mouse_position))
 
 
-def render(window: pygame.Surface):
+def render(window):
     back_backlight.draw(window)
     back_button.draw(window)
     back_hint.draw(window)
@@ -47,3 +53,6 @@ def render(window: pygame.Surface):
     add_hint.draw(window)
 
     window.blit(title_surf.convert_alpha(), title_rect)
+
+    for task in tasks:
+        task.draw(window)
