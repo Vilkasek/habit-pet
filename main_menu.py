@@ -19,6 +19,10 @@ class MainMenu:
         ]
 
     def handle_events(self, event: pygame.Event):
+        if self.buttons[0].is_clicked(event, self.mouse_pos):
+            pass
+        if self.buttons[1].is_clicked(event, self.mouse_pos):
+            pass
         if self.buttons[2].is_clicked(event, self.mouse_pos):
             pygame.quit()
 
