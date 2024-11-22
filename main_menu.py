@@ -1,6 +1,7 @@
 import pygame
 
-import utils.button
+from utils.button import Button
+from utils.states import State
 
 
 class MainMenu:
@@ -13,14 +14,16 @@ class MainMenu:
         self.mouse_pos: tuple[int, int] = (0, 0)
 
         self.buttons = [
-            utils.button.Button("./Assets/MainMenu/Buttons/Start.png", (640, 300)),
-            utils.button.Button("./Assets/MainMenu/Buttons/Options.png", (640, 380)),
-            utils.button.Button("./Assets/MainMenu/Buttons/Exit.png", (640, 460)),
+            Button("./Assets/MainMenu/Buttons/Start.png", (640, 300)),
+            Button("./Assets/MainMenu/Buttons/Options.png", (640, 380)),
+            Button("./Assets/MainMenu/Buttons/Exit.png", (640, 460)),
         ]
+
+        self.state = State()
 
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
-            pass
+            self.state.change_state("tracker")
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             pass
         if self.buttons[2].is_clicked(event, self.mouse_pos):
