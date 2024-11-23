@@ -7,7 +7,7 @@ class Task:
         self.position = position
         self.color = (255, 255, 255)
 
-        self.font = pygame.Font(None, 20)
+        self.font = pygame.Font(None, 50)
 
         self.text_surf = self.font.render(self.text, True, self.color)
         self.text_rect = self.text_surf.get_rect(topright=(self.position))
