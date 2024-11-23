@@ -24,6 +24,7 @@ class TrackerMenu:
         if self.buttons[0].is_clicked(event, self.mouse_pos):
             self.state.change_state("main-menu")
         if self.buttons[1].is_clicked(event, self.mouse_pos):
+            # TODO: Taski
             pass
 
     def update(self):
