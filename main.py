@@ -2,7 +2,8 @@ import sys
 
 import pygame
 
-import main_menu
+from main_menu import MainMenu
+from tracker_menu import TrackerMenu
 from utils.states import State
 
 
@@ -22,7 +23,8 @@ class HabitPet:
 
         self.state = State()
 
-        self.main_menu = main_menu.MainMenu("./Assets/MainMenu/Habit pet.png")
+        self.main_menu = MainMenu("./Assets/MainMenu/Habit pet.png")
+        self.tracker_menu = TrackerMenu("./Assets/TaskMenu/Your tasks.png")
 
     def handle_event(self):
         for event in pygame.event.get():
@@ -34,14 +36,14 @@ class HabitPet:
                 case "main-menu":
                     self.main_menu.handle_events(event)
                 case "tracker":
-                    pass
+                    self.tracker_menu.handle_events(event)
 
     def update(self):
         match self.state.state:
             case "main-menu":
                 self.main_menu.update()
             case "tracker":
-                pass
+                self.tracker_menu.update()
 
         self.clock.tick(60)
 
@@ -52,7 +54,7 @@ class HabitPet:
             case "main-menu":
                 self.main_menu.render(self.screen)
             case "tracker":
-                pass
+                self.tracker_menu.render(self.screen)
 
         pygame.display.flip()
 
