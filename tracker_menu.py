@@ -1,5 +1,6 @@
 import pygame
 
+import tasks
 from tasks import Task
 from utils.button import Button
 from utils.states import State
@@ -30,10 +31,15 @@ class TrackerMenu:
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
 
-    # TODO: Dodać metodę tworzącą checkboxy i obliczającą ich pozycje
+        for task in self.tasks:
+            task.handle_events(event)
 
     def add_task(self):
         self.tasks.append(Task("Test", (300, self.position_y)))
+
+        for task in self.tasks:
+            task.create_checkboxes()
+
         self.position_y += 60
 
     def update(self):
