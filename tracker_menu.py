@@ -30,7 +30,8 @@ class TrackerMenu:
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
 
-    # TODO: Dodać metodę, która będzie dodawała testowe taski
+    # TODO: Dodać metodę tworzącą checkboxy i obliczającą ich pozycje
+
     def add_task(self):
         self.tasks.append(Task("Test", (300, self.position_y)))
         self.position_y += 60
