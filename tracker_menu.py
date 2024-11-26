@@ -1,6 +1,5 @@
 import pygame
 
-import tasks
 from tasks import Task
 from utils.button import Button
 from utils.states import State

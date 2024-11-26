@@ -2,6 +2,7 @@ import pygame
 
 
 class Checkbox:
+    # TODO: Dodać pola klasy potrzebne do zatrzymania możliwości spamowania zaznaczaniem i odznaczaniem
     def __init__(self, on_path: str, off_path: str, position: tuple[int, int]) -> None:
         self.position = position
 
@@ -18,6 +19,7 @@ class Checkbox:
 
         self.mouse_pos = (0, 0)
 
+    # TODO: Dodać logikę blokującą spamowanie
     def handle_events(self, event: pygame.Event):
         if (
             self.rect.collidepoint(self.mouse_pos)

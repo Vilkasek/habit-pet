@@ -4,6 +4,7 @@ from utils.checkboxes import Checkbox
 
 
 class Task:
+    # TODO: Dodać potrzebne pola klasy, aby działało.
     def __init__(self, text: str, position: tuple[int, int]) -> None:
         self.text = text
         self.position = position
@@ -37,10 +38,12 @@ class Task:
         for checkbox in self.checkboxes:
             checkbox.handle_events(event)
 
+    # TODO: Dodanie logiki do pojawiania się i znikania pola do wpisywania tekstu
     def update(self):
         for checkbox in self.checkboxes:
             checkbox.update()
 
+    # TODO: Dodać do wyświetlania ramkę i wypełnienie tła dla zadania.
     def render(self, screen: pygame.Surface):
         self.text_surf = self.text_surf.convert_alpha()
 
