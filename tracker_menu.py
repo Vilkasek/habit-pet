@@ -32,10 +32,21 @@ class TrackerMenu:
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
 
+        if (
+            self.inputfield.visible
+            and event.type == pygame.KEYUP
+            and event.key == pygame.K_RETURN
+        ):
+            self.inputfield.visible = False
+            self.create_tasks()
+
         for task in self.tasks:
             task.handle_events(event)
 
     def add_task(self):
+        self.inputfield.visible = True
+
+    def create_tasks(self):
         self.tasks.append(Task("Test", (300, self.position_y)))
 
         for task in self.tasks:

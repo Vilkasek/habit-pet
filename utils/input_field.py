@@ -14,4 +14,5 @@ class InputField:
         self.visible = False
 
     def render(self, screen: pygame.Surface):
-        screen.blit(self.surf, self.rect)
+        if self.visible:
+            screen.blit(self.surf, self.rect)

@@ -45,7 +45,7 @@ class MainMenu:
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             pass
         if self.buttons[2].is_clicked(event, self.mouse_pos):
-            pygame.quit()
+            self.state.power_state(False)
 
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()

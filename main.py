@@ -59,10 +59,12 @@ class HabitPet:
         pygame.display.flip()
 
     def run(self):
-        while True:
+        while self.state.running:
             self.handle_event()
             self.update()
             self.render()
+
+        pygame.quit()
 
 
 if __name__ == "__main__":
