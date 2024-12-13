@@ -4,7 +4,6 @@ from utils.checkboxes import Checkbox
 
 
 class Task:
-    # TODO: Dodać potrzebne pola klasy, aby działało.
     def __init__(self, text: str, position: tuple[int, int]) -> None:
         self.text = text
         self.position = position
