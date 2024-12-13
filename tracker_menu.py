@@ -3,6 +3,7 @@ import pygame
 from tasks import Task
 from utils.button import Button
 from utils.states import State
+from utils.input_field import InputField
 
 
 class TrackerMenu:
@@ -23,6 +24,7 @@ class TrackerMenu:
         self.position_y = 250
 
         self.state = State()
+        self.inputfield = InputField((640, 580), (600, 60))
 
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
@@ -55,5 +57,7 @@ class TrackerMenu:
 
         for task in self.tasks:
             task.render(screen)
+
+        self.inputfield.render(screen)
 
         screen.blit(self.title_surf, self.title_rect)
