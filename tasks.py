@@ -16,7 +16,7 @@ class Task:
 
         self.checkboxes = []
 
-        self.position_x = self.text_rect.topleft[0] + 200
+        self.position_x = self.text_rect.topright[0] + 100
 
         self.on_path = "./Assets/TaskMenu/Circles/CircleOn.png"
         self.off_path = "./Assets/TaskMenu/Circles/CircleOff.png"
@@ -37,12 +37,10 @@ class Task:
         for checkbox in self.checkboxes:
             checkbox.handle_events(event)
 
-    # TODO: Dodanie logiki do pojawiania się i znikania pola do wpisywania tekstu
     def update(self):
         for checkbox in self.checkboxes:
             checkbox.update()
 
-    # TODO: Dodać do wyświetlania ramkę i wypełnienie tła dla zadania.
     def render(self, screen: pygame.Surface):
         self.text_surf = self.text_surf.convert_alpha()
 

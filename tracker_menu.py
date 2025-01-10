@@ -26,6 +26,9 @@ class TrackerMenu:
         self.state = State()
         self.inputfield = InputField((640, 580), (600, 60))
 
+        self.full = False
+        self.tasks_amount = 0
+
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
             self.state.change_state("main-menu")
@@ -38,7 +41,16 @@ class TrackerMenu:
             and event.key == pygame.K_RETURN
         ):
             self.inputfield.visible = False
-            self.create_tasks()
+            self.tasks_amount += 1
+
+            if self.tasks_amount <= 6:
+                self.create_tasks()
+        elif self.inputfield.visible and event.type == pygame.KEYUP and event.key == pygame.K_ESCAPE:
+            self.inputfield.visible = False
+            self.inputfield.clear_field()
+
+        if self.inputfield.visible:
+            self.inputfield.handle_events(event)
 
         for task in self.tasks:
             task.handle_events(event)
@@ -47,12 +59,14 @@ class TrackerMenu:
         self.inputfield.visible = True
 
     def create_tasks(self):
-        self.tasks.append(Task("Test", (300, self.position_y)))
+        if not self.full:
+            self.tasks.append(Task(self.inputfield.text, (400, self.position_y)))
+            self.inputfield.clear_field()
 
-        for task in self.tasks:
-            task.create_checkboxes()
+            for task in self.tasks:
+                task.create_checkboxes()
 
-        self.position_y += 60
+            self.position_y += 60
 
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()
