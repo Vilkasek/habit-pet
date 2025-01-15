@@ -37,6 +37,8 @@ class HabitPet:
                     self.main_menu.handle_events(event)
                 case "tracker":
                     self.tracker_menu.handle_events(event)
+                case "pet-room":
+                        pass
 
     def update(self):
         match self.state.state:
@@ -44,6 +46,8 @@ class HabitPet:
                 self.main_menu.update()
             case "tracker":
                 self.tracker_menu.update()
+            case "pet-room":
+                pass
 
         self.clock.tick(60)
 
@@ -55,6 +59,8 @@ class HabitPet:
                 self.main_menu.render(self.screen)
             case "tracker":
                 self.tracker_menu.render(self.screen)
+            case "pet-room":
+                pass
 
         pygame.display.flip()
 

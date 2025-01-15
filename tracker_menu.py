@@ -35,6 +35,8 @@ class TrackerMenu:
             self.state.change_state("main-menu")
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
+        if self.buttons[2].is_clicked(event, self.mouse_pos):
+            self.state.change_state("pet-room")
 
         if (
             self.inputfield.visible
