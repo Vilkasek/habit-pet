@@ -4,6 +4,8 @@ import pygame
 
 from main_menu import MainMenu
 from tracker_menu import TrackerMenu
+from petroom import Petroom
+
 from utils.states import State
 
 
@@ -25,6 +27,7 @@ class HabitPet:
 
         self.main_menu = MainMenu("./Assets/MainMenu/Habit pet.png")
         self.tracker_menu = TrackerMenu("./Assets/TaskMenu/Your tasks.png")
+        self.pet_room = Petroom("./Assets/Pet/Character/slime.png")
 
     def handle_event(self):
         for event in pygame.event.get():
