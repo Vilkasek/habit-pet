@@ -1,5 +1,5 @@
 class State:
-    states = ["main-menu", "tracker"]
+    states = ["main-menu", "tracker", "pet-room"]
     state = states[0]
 
     running = True

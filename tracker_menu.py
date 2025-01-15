@@ -18,6 +18,7 @@ class TrackerMenu:
         self.buttons = [
             Button("./Assets/TaskMenu/Controls/Back.png", (60, 660)),
             Button("./Assets/TaskMenu/Controls/AddTaskButton.png", (640, 660)),
+            Button("./Assets/Pet/Door/drzwi_cale.png", (1100, 600))
         ]
 
         self.tasks = []
