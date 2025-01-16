@@ -10,7 +10,7 @@ class Petroom:
 
         self.state = State()
 
-        self.back_button = Button("./Assets/TaskMenu/Controls/Back.png", (64, 680))
+        self.back_button = Button("./Assets/TaskMenu/Controls/Back.png", (60, 660))
 
     def handle_events(self, event: pygame.Event):
         mouse_pos = pygame.mouse.get_pos()
