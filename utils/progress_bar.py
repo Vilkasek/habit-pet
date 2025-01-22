@@ -16,17 +16,26 @@ class ProgressBar:
         self.value = 10
         self.angle = 0
 
+    def rotate(self, side: int):
+        self.angle += self.value * side
+
+        if self.angle <= -180:
+            self.angle = -180
+
+        if self.angle >= 0:
+            self.angle = 0
+
+        center = self.bar_rect.center 
+
+        self.bar_surf = pygame.transform.rotate(self.original_bar_surf, self.angle)
+        self.bar_rect = self.bar_surf.get_rect(center=center)
+
+
     def handle_events(self, event: pygame.event.Event):
         if event.type == pygame.KEYUP and event.key == pygame.K_q:
-            self.angle += self.value
-
-            if self.angle >= 180:
-                self.angle = 180
-
-            center = self.bar_rect.center 
-
-            self.bar_surf = pygame.transform.rotate(self.original_bar_surf, self.angle)
-            self.bar_rect = self.bar_surf.get_rect(center=center)
+            self.rotate(-1)
+        if event.type == pygame.KEYUP and event.key == pygame.K_e:
+            self.rotate(1)
 
     def render(self, window: pygame.Surface):
         window.blit(self.bar_surf, self.bar_rect)
