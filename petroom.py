@@ -14,14 +14,16 @@ class Petroom:
         self.back_button = Button("./Assets/TaskMenu/Controls/Back.png", (60, 660))
 
         self.ui = [
-            ProgressBar("./Assets/Pet/UI/health_shield.png", "./Assets/Pet/UI/health_bar.png", (170, 200)),
-            ProgressBar("./Assets/Pet/UI/energy_shield.png", "./Assets/Pet/UI/energy_bar.png", (170, 400)),
-            ProgressBar("./Assets/Pet/UI/fun_shield.png", "./Assets/Pet/UI/fun_bar.png", (170, 600)),
+            ProgressBar("./Assets/Pet/UI/health_shield.png", "./Assets/Pet/UI/health_bar.png", (150, 100)),
+            ProgressBar("./Assets/Pet/UI/energy_shield.png", "./Assets/Pet/UI/energy_bar.png", (150, 300)),
+            ProgressBar("./Assets/Pet/UI/fun_shield.png", "./Assets/Pet/UI/fun_bar.png", (150, 500)),
         ]
 
         self.controls = [
-                Button("")
-                ]
+            Button("./Assets/Pet/UI/bowl.png", (1200, 200)),
+            Button("./Assets/Pet/UI/bed.png", (1200, 300)),
+            Button("./Assets/Pet/UI/ball.png", (1200, 400)),
+        ]
 
     def handle_events(self, event: pygame.Event):
         mouse_pos = pygame.mouse.get_pos()
@@ -41,6 +43,9 @@ class Petroom:
         self.back_button.render(window)
 
         for element in self.ui:
+            element.render(window)
+
+        for element in self.controls:
             element.render(window)
 
         window.blit(self.p_img, self.p_rect)
