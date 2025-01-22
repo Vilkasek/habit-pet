@@ -25,6 +25,9 @@ class Petroom:
         if self.back_button.is_clicked(event, mouse_pos):
             self.state.change_state("tracker")
 
+        for element in self.ui:
+            element.handle_events(event)
+
     def update(self) -> None:
         pass
 
