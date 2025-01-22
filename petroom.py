@@ -14,9 +14,9 @@ class Petroom:
         self.back_button = Button("./Assets/TaskMenu/Controls/Back.png", (60, 660))
 
         self.ui = [
-            ProgressBar("./Assets/Pet/UI/health_shield.png", "./Assets/Pet/UI/health_bar.png", (150, 100)),
-            ProgressBar("./Assets/Pet/UI/energy_shield.png", "./Assets/Pet/UI/energy_bar.png", (150, 300)),
-            ProgressBar("./Assets/Pet/UI/fun_shield.png", "./Assets/Pet/UI/fun_bar.png", (150, 500)),
+            ProgressBar("./Assets/Pet/UI/health_shield.png", "./Assets/Pet/UI/health_bar.png", (150, 100), -30),
+            ProgressBar("./Assets/Pet/UI/energy_shield.png", "./Assets/Pet/UI/energy_bar.png", (150, 300), 90),
+            ProgressBar("./Assets/Pet/UI/fun_shield.png", "./Assets/Pet/UI/fun_bar.png", (150, 500), -45),
         ]
 
         self.controls = [
@@ -31,8 +31,17 @@ class Petroom:
         if self.back_button.is_clicked(event, mouse_pos):
             self.state.change_state("tracker")
 
-        for element in self.ui:
-            element.handle_events(event)
+        if self.controls[0].is_clicked(event, mouse_pos):
+            self.ui[0].rotate(1, 20)
+            self.ui[2].rotate(-1, 10)
+        if self.controls[1].is_clicked(event, mouse_pos):
+            self.ui[1].rotate(1, 20)
+            self.ui[0].rotate(-1, 10)
+            self.ui[2].rotate(-1, 10)
+        if self.controls[2].is_clicked(event, mouse_pos):
+            self.ui[2].rotate(1, 20)
+            self.ui[0].rotate(-1, 10)
+            self.ui[1].rotate(-1, 20)
 
     def update(self) -> None:
         pass

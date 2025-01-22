@@ -1,7 +1,7 @@
 import pygame
 
 class ProgressBar:
-    def __init__(self, shield: str, bar: str, position: tuple[int, int]) -> None:
+    def __init__(self, shield: str, bar: str, position: tuple[int, int], default_value: float) -> None:
         self.shield_surf = pygame.image.load(shield).convert_alpha()
         self.original_bar_surf = pygame.image.load(bar).convert_alpha()
         self.bar_surf = self.original_bar_surf.copy()
@@ -14,10 +14,12 @@ class ProgressBar:
         self.bar_rect = self.bar_surf.get_rect(center=position)
 
         self.value = 10
-        self.angle = 0
+        self.angle = default_value
 
-    def rotate(self, side: int):
-        self.angle += self.value * side
+        self.rotate(1, self.angle)
+
+    def rotate(self, side: int, val : float):
+        self.angle += val * side
 
         if self.angle <= -180:
             self.angle = -180
@@ -29,13 +31,6 @@ class ProgressBar:
 
         self.bar_surf = pygame.transform.rotate(self.original_bar_surf, self.angle)
         self.bar_rect = self.bar_surf.get_rect(center=center)
-
-
-    def handle_events(self, event: pygame.event.Event):
-        if event.type == pygame.KEYUP and event.key == pygame.K_q:
-            self.rotate(-1)
-        if event.type == pygame.KEYUP and event.key == pygame.K_e:
-            self.rotate(1)
 
     def render(self, window: pygame.Surface):
         window.blit(self.bar_surf, self.bar_rect)
