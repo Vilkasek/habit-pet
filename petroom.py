@@ -19,6 +19,10 @@ class Petroom:
             ProgressBar("./Assets/Pet/UI/fun_shield.png", "./Assets/Pet/UI/fun_bar.png", (170, 600)),
         ]
 
+        self.controls = [
+                Button("")
+                ]
+
     def handle_events(self, event: pygame.Event):
         mouse_pos = pygame.mouse.get_pos()
 
