@@ -9,8 +9,11 @@ class ProgressBar:
         self.shield_rect = self.shield_surf.get_rect(center=positon)
         self.bar_rect = self.bar_surf.get_rect(center=positon)
 
+        self.bar_surf = pygame.transform.scale_by(self.bar_surf, 0.5)
+        self.shield_surf = pygame.transform.scale_by(self.shield_surf, 0.5)
     def render(self, window: pygame.Surface):
         self.shield_surf = self.shield_surf.convert_alpha()
+
         self.bar_surf = self.bar_surf.convert_alpha()
 
         window.blit(self.bar_surf, self.bar_rect)
