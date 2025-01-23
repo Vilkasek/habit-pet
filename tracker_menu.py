@@ -5,7 +5,6 @@ from utils.button import Button
 from utils.states import State
 from utils.input_field import InputField
 
-
 class TrackerMenu:
     def __init__(self, title_path: str) -> None:
         self.title_path = title_path
@@ -29,7 +28,7 @@ class TrackerMenu:
 
         self.full = False
         self.tasks_amount = 0
-
+        
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
             self.state.change_state("main-menu")

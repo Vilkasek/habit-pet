@@ -1,8 +1,8 @@
 import pygame
 
+from utils.economy import Economy
 
 class Checkbox:
-    # TODO: Dodać pola klasy potrzebne do zatrzymania możliwości spamowania zaznaczaniem i odznaczaniem
     def __init__(self, on_path: str, off_path: str, position: tuple[int, int]) -> None:
         self.position = position
 
@@ -19,13 +19,15 @@ class Checkbox:
 
         self.mouse_pos = (0, 0)
 
-    # TODO: Dodać logikę blokującą spamowanie
+        self.economy = Economy()
+
     def handle_events(self, event: pygame.Event):
         if (
             self.rect.collidepoint(self.mouse_pos)
             and event.type == pygame.MOUSEBUTTONUP
         ):
             self.checked = not self.checked
+            self.economy.add_points(10)
 
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()
