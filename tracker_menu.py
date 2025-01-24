@@ -30,7 +30,7 @@ class TrackerMenu:
         self.tasks_amount = 0
  
     def save(self):
-        pass
+        save_data = {}
 
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
