@@ -1,10 +1,10 @@
 [
     {
-        "task": "SPADAJ",
+        "task": "MAKE A BED",
         "checkboxes": [
-            false,
-            false,
-            false,
+            true,
+            true,
+            true,
             false,
             false,
             false,
