@@ -1,5 +1,7 @@
+from os.path import isfile
 import pygame
 import json
+import os
 
 from tasks import Task
 from utils.button import Button
@@ -29,9 +31,43 @@ class TrackerMenu:
 
         self.full = False
         self.tasks_amount = 0
+
+        self.load_tasks_from_file()
  
+    def save_tasks_to_file(self, filename="./miscs/tasks.json"):
+        tasks_data = []
+        for task in self.tasks:
+            task_data = {
+                "text": task.text,
+                "pos": task.text_rect.y
+            }
+            tasks_data.append(task_data)
+        
+        with open(filename, "w") as file:
+            json.dump(tasks_data, file, indent=4)
+
+    def load_tasks_from_file(self, filename="./miscs/tasks.json"):
+        try:
+            if os.path.isfile(filename) and os.path.getsize(filename) > 0:
+                with open(filename, "r") as file:
+                    tasks_data = json.load(file)
+                self.tasks = [] 
+                for task_data in tasks_data:
+                    text = task_data["text"]
+                    y = task_data["pos"]
+                    new_task = Task(text, (400, y))
+                    self.tasks.append(new_task)
+
+                for task in self.tasks:
+                    task.create_checkboxes()
+
+        except FileNotFoundError:
+            print(f"{filename} not found. Starting with an empty task list.")
+
+
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
+            self.save_tasks_to_file()
             self.state.change_state("main-menu")
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
