@@ -30,28 +30,12 @@ class TrackerMenu:
         self.full = False
         self.tasks_amount = 0
  
-    def save_tasks_to_file(self, filename="./miscs/tasks.json"):
-        tasks_data = []
-        for task in self.tasks:
-            task_name = task.text
-            task_pos = task.position[1]
-            checkbox_states = [checkbox.checked for checkbox in task.checkboxes]
-            tasks_data.append({"task": task_name, "checkboxes": checkbox_states, "position": task_pos})
-        with open(filename, "w") as file:
-            json.dump(tasks_data, file, indent=4)
-
-    def load_tasks_from_file(self, filename="./miscs/tasks.json"):
-        # TODO Utworzyć logikę ładowania zapisanych w pliku tasków.
-        pass
-
     def handle_events(self, event: pygame.Event):
         if self.buttons[0].is_clicked(event, self.mouse_pos):
-            self.save_tasks_to_file()
             self.state.change_state("main-menu")
         if self.buttons[1].is_clicked(event, self.mouse_pos):
             self.add_task()
         if self.buttons[2].is_clicked(event, self.mouse_pos):
-            self.save_tasks_to_file()
             self.state.change_state("pet-room")
 
         if (
