@@ -1,4 +1,3 @@
-from os.path import isfile
 import pygame
 import json
 import os
@@ -31,15 +30,19 @@ class TrackerMenu:
 
         self.full = False
         self.tasks_amount = 0
+        
+        self.checks = []
 
         self.load_tasks_from_file()
  
     def save_tasks_to_file(self, filename="./miscs/tasks.json"):
         tasks_data = []
         for task in self.tasks:
+            checkbox_states = [checkbox.checked for checkbox in task.checkboxes]
             task_data = {
                 "text": task.text,
-                "pos": task.text_rect.y
+                "pos": task.text_rect.y,
+                "boxes": checkbox_states
             }
             tasks_data.append(task_data)
         
@@ -49,17 +52,23 @@ class TrackerMenu:
     def load_tasks_from_file(self, filename="./miscs/tasks.json"):
         try:
             if os.path.isfile(filename) and os.path.getsize(filename) > 0:
+                self.checks = []
                 with open(filename, "r") as file:
                     tasks_data = json.load(file)
                 self.tasks = [] 
                 for task_data in tasks_data:
                     text = task_data["text"]
                     y = task_data["pos"]
+                    self.checks = task_data["boxes"]
                     new_task = Task(text, (400, y))
                     self.tasks.append(new_task)
 
                 for task in self.tasks:
                     task.create_checkboxes()
+                    i = 0
+                    for box in task.checkboxes:
+                        i += 1
+                        box.checked = self.checks[i-1]
 
         except FileNotFoundError:
             print(f"{filename} not found. Starting with an empty task list.")
